@@ -18,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -38,20 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         List<NotesModel> allNotes = notesDatabase.getAllNotes();
 
-        /*
-        recyclerView = findViewById(R.id.notesRecyclerView);
-        recyclerView.setHasFixedSize(false);
-
-        staggeredLayoutManager = new StaggeredGridLayoutManager(2,1);
-        staggeredLayoutManager.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
-
-        recyclerView.setLayoutManager(staggeredLayoutManager);
-
-        recyclerView.setLayoutManager(staggeredLayoutManager);
-        notesAdapter = new NotesAdapter(notesDatabase.getAllNotes(), MainActivity.this);
-        recyclerView.setAdapter(notesAdapter);
-         */
-
         updateNotes();
 
         ImageView imageAddNoteMain = findViewById(R.id.imageAddNoteMain);
@@ -69,6 +56,12 @@ public class MainActivity extends AppCompatActivity {
                 System.out.println(query);
                 List<NotesModel> resultNotes = notesDatabase.searchNotes(query);
                 System.out.println(resultNotes.toString());
+
+                Intent intent = new Intent(getApplicationContext(), SearchResultActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("result", (Serializable) resultNotes);
+                intent.putExtra("bundle", bundle);
+                startActivity(intent);
             }
         });
     }

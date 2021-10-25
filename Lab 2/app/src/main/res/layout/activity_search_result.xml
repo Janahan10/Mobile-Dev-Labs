@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageBack2"
+        android:layout_width="@dimen/_30sdp"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="26dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/ic_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/colorIcons" />
+
+    <TextView
+        android:id="@+id/textMyNotes"
+        android:layout_width="216dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="26dp"
+        android:fontFamily="@font/ubuntu_bold"
+        android:includeFontPadding="false"
+        android:text="NoteMe"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        app:layout_constraintStart_toEndOf="@+id/imageBack2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/notesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="75dp"
+        android:clipToPadding="false"
+        android:paddingLeft="15dp"
+        android:paddingTop="15dp"
+        app:layout_constraintBottom_toTopOf="@id/layoutQuickActions"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:itemCount="14"
+        tools:layoutManager="GridLayoutManager"
+        tools:layout_editor_absoluteX="3dp"
+        tools:listitem="@layout/recycler_view_item"
+        tools:spanCount="5"></androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:id="@+id/layoutQuickActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="@dimen/_15sdp"
+        android:elevation="@dimen/_5sdp"
+        android:outlineProvider="bounds"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!--<ImageView
+             android:id="@+id/imageAddNote"
+             android:layout_width="@dimen/_23sdp"
+             android:layout_height="@dimen/_23sdp"
+             android:contentDescription="@string/app_name"
+             android:src="@drawable/ic_add_outline"
+             app:tint="@color/colorIcons" />-->
+
+        <!--<ImageView
+            android:id="@+id/imageAddImage"
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_image"
+            app:tint="@color/colorIcons" /> -->
+
+        <!--        <ImageView
+                    android:id="@+id/imageAddWebLink"
+                    android:layout_width="@dimen/_23sdp"
+                    android:layout_height="@dimen/_23sdp"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_web_link"
+                    app:tint="@color/colorIcons" /> -->
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageAddNoteMain"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_marginEnd="@dimen/_30sdp"
+        android:elevation="@dimen/_15sdp"
+        android:background="@drawable/background_add_button"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/_5sdp"
+        android:src="@drawable/ic_add"
+        app:layout_constraintBottom_toTopOf="@id/layoutQuickActions"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/layoutQuickActions"
+        app:tint="@color/colorPrimary" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
